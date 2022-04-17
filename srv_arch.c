@@ -11,7 +11,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-#define MAX_WORKERS 8
+#define MAX_WORKERS 4
 #define true 1
 #define false 0
 typedef char bool;
@@ -67,7 +67,7 @@ static void daemonize()
 	signal(SIGTSTP, SIG_IGN);
 
 	if (0 != fork()) exit(0);
-	
+
 	if (-1 == setsid()) exit(0);
 
 	signal(SIGHUP, SIG_IGN);
